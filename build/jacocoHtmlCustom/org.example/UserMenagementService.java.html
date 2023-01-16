@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UserMenagementService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">testy</a> &gt; <a href="index.source.html" class="el_package">org.example</a> &gt; <span class="el_source">UserMenagementService.java</span></div><h1>UserMenagementService.java</h1><pre class="source lang-java linenums">package org.example;
+
+import java.util.*;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+
+<span class="fc" id="L7">public class UserMenagementService {</span>
+<span class="fc" id="L8">    Map&lt;String, User&gt; mapWithUsers = new HashMap&lt;&gt;();</span>
+    public void create(User user) {
+<span class="fc bfc" id="L10" title="All 2 branches covered.">        if(mapWithUsers.containsKey(user.getEmail())){</span>
+<span class="fc" id="L11">            throw new RuntimeException(&quot;User with email: [&quot;+user.getEmail()+&quot;] is already created&quot;);</span>
+        }
+<span class="fc" id="L13">        mapWithUsers.put(user.getEmail(), user);</span>
+<span class="fc" id="L14">    }</span>
+
+    public List&lt;User&gt; findAll() {
+<span class="fc" id="L17">        return new ArrayList&lt;User&gt;(mapWithUsers.values());</span>
+    }
+
+
+    public Optional&lt;User&gt; findByEmail(String email) {
+<span class="fc" id="L22">      return Optional.ofNullable(mapWithUsers.get(email));</span>
+    }
+
+    public List&lt;User&gt; findByName(String name) {
+<span class="fc" id="L26">        return mapWithUsers.values()</span>
+<span class="fc" id="L27">                .stream()</span>
+<span class="fc" id="L28">                .filter(e-&gt;name.equals(e.getName())).collect(Collectors.toList());</span>
+    }
+
+    public void update(String email, User userUpdated) {
+<span class="fc bfc" id="L32" title="All 2 branches covered.">        if(!mapWithUsers.containsKey(email)){</span>
+<span class="fc" id="L33">            throw new RuntimeException(&quot;User with email: [&quot;+email+&quot;] doesn't exist&quot;);</span>
+        }
+<span class="pc bpc" id="L35" title="1 of 2 branches missed.">        if(!email.equals(userUpdated.getEmail())){</span>
+<span class="fc" id="L36">            mapWithUsers.remove(email);</span>
+        }
+<span class="fc" id="L38">        mapWithUsers.put(userUpdated.getEmail(), userUpdated);</span>
+<span class="fc" id="L39">    }</span>
+
+    public void delete(String email) {
+<span class="fc bfc" id="L42" title="All 2 branches covered.">        if(!mapWithUsers.containsKey(email)){</span>
+<span class="fc" id="L43">            throw new RuntimeException(&quot;User with email: [&quot;+email+&quot;] doesn't exist&quot;);</span>
+        }
+<span class="fc" id="L45">        mapWithUsers.remove(email);</span>
+<span class="fc" id="L46">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

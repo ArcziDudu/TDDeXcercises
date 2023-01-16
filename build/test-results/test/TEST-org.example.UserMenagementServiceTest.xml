@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.example.UserMenagementServiceTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2023-01-16T15:03:48" hostname="ARTUR" time="0.098">
+  <properties/>
+  <testcase name="shouldCreateMultipleUsersCorrectly()" classname="org.example.UserMenagementServiceTest" time="0.054"/>
+  <testcase name="shouldFailWhenDuplicateUserIsCreated()" classname="org.example.UserMenagementServiceTest" time="0.011"/>
+  <testcase name="shouldDeleteUserCorrectly()" classname="org.example.UserMenagementServiceTest" time="0.002"/>
+  <testcase name="shouldThrowWhenDeletingNonExistingUser()" classname="org.example.UserMenagementServiceTest" time="0.003"/>
+  <testcase name="shouldFindUsersWithName()" classname="org.example.UserMenagementServiceTest" time="0.003"/>
+  <testcase name="shouldThrowWhenModifyNonExistingUser()" classname="org.example.UserMenagementServiceTest" time="0.003"/>
+  <testcase name="shouldCreateUserCorrectly()" classname="org.example.UserMenagementServiceTest" time="0.004"/>
+  <testcase name="shouldModifyUserDataCorrectly()" classname="org.example.UserMenagementServiceTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
